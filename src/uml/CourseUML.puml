@@ -1,0 +1,33 @@
+@startuml CourseUML
+
+class CircuitDeCourse
+
+interface VoitureDuChampionnatDeFormuleUn {
+     + accelerer(): void
+     + freiner(): void
+     + tourner(): void
+     + getColor(): string
+}
+
+class MercedesCar
+
+class RenaultCar
+
+class FerrariCar
+
+class VoitureFactory {
+     # getVoitureDuChampionnatDeFormuleUn(VoitureType type): VoitureDuChampionnatDeFormuleUn
+}
+enum VoitureType
+
+class SafetyCar {
+    {static} - instance: SafetyCar
+    {static} + getInstance(): SafetyCar
+}
+VoitureDuChampionnatDeFormuleUn <|.. Renault
+VoitureDuChampionnatDeFormuleUn <|.. Mercedes
+VoitureDuChampionnatDeFormuleUn <|.. Ferrari
+
+CircuitDeCourse ..> VoitureFactory : uses
+
+@enduml[]
